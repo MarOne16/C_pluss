@@ -6,7 +6,7 @@
 /*   By: mqaos <mqaos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 17:47:30 by mqaos             #+#    #+#             */
-/*   Updated: 2023/08/30 23:54:24 by mqaos            ###   ########.fr       */
+/*   Updated: 2023/09/03 21:07:43 by mqaos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void Zombie::announce(void)
 {
-    if (name.compare("FOO"))
-        std::cout << "<" << name << ">" << ": BraiiiiiiinnnzzzZ..." << std::endl;
-    else
-        std::cout << name << ": BraiiiiiiinnnzzzZ..."  << std::endl;
+
+    std::cout << name << ": BraiiiiiiinnnzzzZ..."  << std::endl;
         
 }
 

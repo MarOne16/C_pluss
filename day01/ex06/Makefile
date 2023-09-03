@@ -1,11 +1,10 @@
-NAME   = Zombie
-FLAGS  = -Wall -Wextra -Werror -std=c++98 
+NAME   = Harlfilter
+FLAGS  = -Wall -Wextra -Werror -std=c++98
 CC     = g++
-HEADER = Zombie.hpp
-FILES  =	main.cpp \
-			zombieHorde.cpp \
-			Zombie.cpp 
+FILES  = main.cpp \
+		 Harl.cpp
 OBJS   = $(FILES:.cpp=.o)
+HEADER = Harl.hpp
 
 all: $(NAME)
 

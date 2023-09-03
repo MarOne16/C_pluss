@@ -6,7 +6,7 @@
 /*   By: mqaos <mqaos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 17:34:35 by mqaos             #+#    #+#             */
-/*   Updated: 2023/08/30 22:59:47 by mqaos            ###   ########.fr       */
+/*   Updated: 2023/09/03 21:08:00 by mqaos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
-#include <limits>
-#include <iomanip>
+
+
 
 class Zombie
 {

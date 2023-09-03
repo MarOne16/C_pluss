@@ -1,19 +1,19 @@
 NAME   = Zombie
-FLAGS  = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address,integer,undefined
+FLAGS  = -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address,integer,undefined
 CC     = g++
 HEADER = Zombie.hpp
 FILES  =	main.cpp \
 			newZombie.cpp \
 			rendomChump.cpp \
 			Zombie.cpp 
-OBJS   = $(FILES:.cc=.o)
+OBJS   = $(FILES:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADER)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cc
+%.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: mqaos <mqaos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:32:54 by mqaos             #+#    #+#             */
-/*   Updated: 2023/09/02 23:36:48 by mqaos            ###   ########.fr       */
+/*   Updated: 2023/09/03 17:47:55 by mqaos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Harl
         void info(void);
         void warning(void);
         void error(void);
+        void unknown(void);
     public:
         void complain( std::string level );
 };

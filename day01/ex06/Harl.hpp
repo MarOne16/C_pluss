@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqaos <mqaos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 22:58:48 by mqaos             #+#    #+#             */
-/*   Updated: 2023/09/03 21:09:52 by mqaos            ###   ########.fr       */
+/*   Created: 2023/09/03 19:10:54 by mqaos             #+#    #+#             */
+/*   Updated: 2023/09/03 20:59:16 by mqaos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#if !defined(ZOMBIE_HPP)
-#define ZOMBIE_HPP
+#if !defined(HARL_HPP)
+#define HARL_HPP
 
-#include <iostream>
 #include <string>
+#include <iostream>
 
-class Zombie
+// enum Loglevel
+// {
+//    DEBUG,
+//    INFO,
+//    WARNING,
+//    ERROR,
+//    UNKNOWN
+// };
+
+class Harl
 {
-	private :
-	std::string name;
-
-	public:
-
-	void announce( void );
-	void set_name(std::string Name);
-	Zombie(void);
-	~Zombie(void);
+    public:
+        void log(std::string &message);
+        Harl(void);
+        ~Harl(void);
 };
 
-Zombie  *zombieHorde( int N, std::string name );
 
-#endif // ZOMBIE_HPP
+#endif // HARL_HPP
