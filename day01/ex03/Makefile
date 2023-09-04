@@ -1,21 +1,27 @@
-CXX = g++
-CXXFLAGS = -std=c++98 -Wall -Wextra
+NAME   = club
+FLAGS  = -Wall -Wextra -Werror -std=c++98 
+CC     = g++
+HEADER = HumanA.hpp HumanB.hpp Weapon.hpp
+FILES  =	Weapon.cpp \
+			HumanA.cpp \
+			HumanB.cpp \
+			main.cpp 
+OBJS   = $(FILES:.cpp=.o)
 
-# List of source files
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+all: $(NAME)
 
-# List of header files
-HDRS = Weapon.hpp HumanA.hpp HumanB.hpp
+$(NAME): $(OBJS) $(HEADER)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-# Output executable name
-TARGET = main
-
-all: $(TARGET)
-
-$(TARGET): $(SRCS) $(HDRS)
-	$(CXX) $(CXXFLAGS) $(SRCS) -o $(TARGET)
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(OBJS)
 
-.PHONY: all clean
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

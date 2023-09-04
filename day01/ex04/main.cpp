@@ -6,7 +6,7 @@
 /*   By: mqaos <mqaos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 15:23:18 by mqaos             #+#    #+#             */
-/*   Updated: 2023/09/02 22:48:32 by mqaos            ###   ########.fr       */
+/*   Updated: 2023/09/03 21:23:29 by mqaos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ int main(int argc, char const *argv[])
 		while (std::getline(inputfile, line))
 		{
 			line = replace_in_file(line, s1, s2);
-			outputfile << line << std::endl;
+				outputfile << line;
+			if(!inputfile.eof())
+				outputfile<<std::endl;
 		}
 		inputfile.close();
 		outputfile.close();

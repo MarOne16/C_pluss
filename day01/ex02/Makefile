@@ -1,15 +1,15 @@
 NAME   = Brain
-FLAGS  = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address,integer,undefined
+FLAGS  = -Wall -Wextra -Werror -std=c++98
 CC     = g++
 FILES  =	main.cpp 
-OBJS   = $(FILES:.cc=.o)
+OBJS   = $(FILES:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cc
+%.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:

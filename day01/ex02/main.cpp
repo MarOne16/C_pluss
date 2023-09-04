@@ -6,7 +6,7 @@
 /*   By: mqaos <mqaos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:56:15 by mqaos             #+#    #+#             */
-/*   Updated: 2023/08/31 22:02:32 by mqaos            ###   ########.fr       */
+/*   Updated: 2023/09/03 21:18:10 by mqaos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 int main()
 {
-    std::string str = "HI THIS IS BRAIN";
+    std::string A = "HI THIS IS BRAIN";
 
-    std::string *stringPTR = &str;
-    std::string &stringREF = str;
+    std::string *stringPTR = &A;
+    std::string &stringREF = A;
 
-    std::cout << (stringPTR) << std::endl;
-    std::cout << &(stringREF) << std::endl;
+    std::cout <<"he memory address of the string variable : "<< &A << std::endl;
+    std::cout <<"The memory address held by stringPTR     : "<< stringPTR << std::endl;
+    std::cout <<"The memory address held by stringREF     : "<< &stringREF << std::endl;
 
-    std::cout << (stringPTR) << std::endl;
-    std::cout << &(stringREF) << std::endl;
+    std::cout <<"The value of the string variable         : "<< A << std::endl;
+    std::cout <<"The value pointed to by stringPTR        : "<< *stringPTR << std::endl;
+    std::cout <<"The value pointed to by stringREF        : "<< stringREF << std::endl;
     return (0);
 }
