@@ -6,7 +6,7 @@
 /*   By: mqaos <mqaos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:55:43 by mqaos             #+#    #+#             */
-/*   Updated: 2023/09/08 16:55:50 by mqaos            ###   ########.fr       */
+/*   Updated: 2023/09/08 23:01:16 by mqaos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ public:
 	Fixed();
 	Fixed(int value) : value(value) {}
 	Fixed(const Fixed &other);
+	~Fixed();
 	Fixed &operator=(const Fixed &other);
 	int getRawBits( void ) const;
 	void setRawBits( int raw);
-	~Fixed();
 };
 
 
