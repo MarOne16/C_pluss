@@ -25,15 +25,24 @@ Fixed Point::gety(void)
     return (b);
 }
 
-bool bsp( Point  a, Point  b, Point  c, Point  point)
+Fixed get_ocean_triangle(Point a, Point b, Point c)
 {
-    Fixed denominator = ((b.gety() - c.gety()) * (a.getx() - c.getx()) + (c.getx() - b.getx()) * (a.gety() - c.gety()));
+    Fixed result = (a.getx() * (b.gety() - c.gety()) + b.getx() * (c.gety() - a.gety()) + c.getx() * (a.gety() - b.gety()));
+    if (result < 0)
+        result = result * -1;
+    result = result / 2;
+    return (result);
+}
 
-    if (denominator == 0)
+bool bsp( Point const  a, Point const b, Point const c, Point const point)
+{
+    Fixed abc = get_ocean_triangle(a, b, c);
+    Fixed abp = get_ocean_triangle(a, b, point);
+    Fixed apc = get_ocean_triangle(a, point, c);
+    Fixed pbc = get_ocean_triangle(point, b, c);
+    if (abp == 0 || apc == 0 || pbc == 0)
         return (false);
-    Fixed a_numerator = ((b.gety() - c.gety()) * (point.getx() - c.getx()) + (c.getx() - b.getx()) * (point.gety() - c.gety())) / denominator;
-    Fixed b_numerator = ((c.gety() - a.gety()) * (point.getx() - c.getx()) + (a.getx() - c.getx()) * (point.gety() - c.gety())) / denominator; 
-    float c_numerator = 1.0f - (a_numerator.toFloat() - b_numerator.toFloat());
-
-    return (a_numerator >= 0 && b_numerator >= 0 && c_numerator >= 0);
+    if (abc == (abp + apc + pbc))
+        return (true);
+    return (false);
 }

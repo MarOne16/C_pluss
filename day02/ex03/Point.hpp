@@ -16,8 +16,8 @@ public:
     Point &operator=(const Point &other);
     Fixed getx(void);
     Fixed gety(void);
-    bool bsp( Point const a, Point const b, Point const c, Point const point);
 };
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 
 
