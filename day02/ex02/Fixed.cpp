@@ -82,8 +82,7 @@ Fixed   &Fixed::operator=(const Fixed &other)
 Fixed   Fixed::operator+(const Fixed &other)
 {
     Fixed tmp;
-    if (this != &other)
-        tmp.setRawBits(this->value + other.value);
+    tmp.setRawBits(this->value + other.value);
     return (tmp);
 }
 
@@ -98,27 +97,21 @@ Fixed   Fixed::operator-(const Fixed &other)
 Fixed   Fixed::operator*(const Fixed &other)
 {
     Fixed tmp;
-    if (this != &other)
-    {
-        long long int total = (static_cast<long long int>(this->value * other.value)) >> (this->fractional_bits); 
-        tmp.setRawBits(static_cast<int>(total));
-    }
+    long long int total = (static_cast<long long int>(this->value * other.value)) >> (this->fractional_bits); 
+    tmp.setRawBits(static_cast<int>(total));
     return (tmp);
 }
 
 Fixed       Fixed::operator/(const Fixed &other)
 {
     Fixed tmp;
-    if (this != &other)
+    if (other.value != 0)
     {
-        if (other.value != 0)
-        {
-            long long int dev = static_cast<long long int>((this->value << this->fractional_bits) / other.value);
-            tmp.setRawBits(static_cast<int>(dev));
-        }
-        else
-            tmp.setRawBits(INT_MAX);
+        long long int dev = static_cast<long long int>((this->value << this->fractional_bits) / other.value);
+        tmp.setRawBits(static_cast<int>(dev));
     }
+    else
+        tmp.setRawBits(INT_MAX);
     return (tmp);
 }
 

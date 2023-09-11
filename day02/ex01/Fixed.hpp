@@ -14,8 +14,9 @@ public:
     Fixed();
     Fixed(const int integer);
     Fixed(const float floating);
+    Fixed(const Fixed &other) : value(other.value){}
     ~Fixed();
-
+    Fixed &operator=(const Fixed &other);
     // Member functions
     float toFloat() const;
     int toInt() const;

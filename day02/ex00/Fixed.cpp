@@ -6,7 +6,7 @@
 /*   By: mqaos <mqaos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:09:35 by mqaos             #+#    #+#             */
-/*   Updated: 2023/09/08 16:56:11 by mqaos            ###   ########.fr       */
+/*   Updated: 2023/09/11 23:43:01 by mqaos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int Fixed::getRawBits(void) const
 
 Fixed::Fixed(const Fixed &other)
 {
-	value = other.value;
 	std::cout << "Copy constructor called" << std::endl;
+	value = other.value;
 }
 
 Fixed::Fixed(void)

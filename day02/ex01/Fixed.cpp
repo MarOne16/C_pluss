@@ -35,6 +35,13 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
     return os;
 }
 
+Fixed &Fixed::operator=(const Fixed &other)
+{
+    if (this != &other)
+        this->value = other.value;
+    return (*this);
+}
+
 Fixed::~Fixed(void)
 {
     std::cout << "Destructor called\n";

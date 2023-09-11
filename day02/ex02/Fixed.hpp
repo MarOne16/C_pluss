@@ -12,6 +12,7 @@ public:
 	Fixed();
 	Fixed(const int integer);
 	Fixed(const float floating);
+	Fixed(const Fixed &other) : value(other.value) {}
 	~Fixed();
 	// Member functions
 	void	setRawBits(int const raw);

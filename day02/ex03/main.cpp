@@ -1,12 +1,12 @@
 #include "Point.hpp"
 
-int main()
+int main(void)
 {
-    Point a(1, 1);
-    Point b(3, 3);
-    Point c(1, 4);
+    Point a(7, 7);
+    Point b(11, 2);
+    Point c(2, 2);
 
-    Point point(2, 3);
+    Point point(7, 4);
     std::cout << "result: " << bsp(a, b, c, point) << "\n";
 
     return 0;

@@ -1,28 +1,28 @@
 #include "Point.hpp"
 
-Point::Point(void) : a(0), b(0) {}
-Point::Point(const Fixed &avalue, const Fixed &bvalue) : a(avalue), b(bvalue){}
-Point::Point(const Point &other) : a(other.a), b(other.b){}
+Point::Point(void) : x(0), y(0) {}
+Point::Point(const Fixed &avalue, const Fixed &bvalue) : x(avalue), y(bvalue){}
+Point::Point(const Point &other) : x(other.x), y(other.y){}
 Point::~Point() {}
 
 Point &Point::operator=(const Point &other)
 {
     if (this != &other)
     {
-        a = other.a;
-        b = other.b;
+        (Fixed)x = other.x;
+        (Fixed)y = other.y;
     }
     return (*this);
 }
 
 Fixed Point::getx(void)
 {
-    return (a);
+    return (x);
 }
 
 Fixed Point::gety(void)
 {
-    return (b);
+    return (y);
 }
 
 Fixed get_ocean_triangle(Point a, Point b, Point c)
