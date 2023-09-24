@@ -10,10 +10,10 @@ class WrongAnimal
     public:
         WrongAnimal(const WrongAnimal &wrongAnimal);
         WrongAnimal();
-        virtual ~WrongAnimal();
+        ~WrongAnimal();
         WrongAnimal &operator=(const WrongAnimal &wrongAnimal);
         std::string getType() const;
-        virtual void makeSound() const;
+        void makeSound() const;
 };
 
 #endif // WRONGANIMAL_HPP
