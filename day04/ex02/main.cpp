@@ -1,7 +1,10 @@
 #include "Animal.hpp"
 
-// int main()
-// {
-//     Animal test;
-//     cout <<  << endl;
-// }
+int main()
+{
+    Cat cat;
+    Dog dog;
+
+    cat.makeSound();
+    dog.makeSound();
+}

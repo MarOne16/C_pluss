@@ -2,8 +2,9 @@
 
 Character::Character(std::string const &name) : name(name)
 {
+    *inventory = nullptr;
     for (int i = 0; i < 4; i++)
-        this->inventory[i] = nullptr;
+        this->inventory[i] = NULL;
 }
 
 Character::Character(Character const &other)
@@ -37,6 +38,8 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
+    if (!m && m->getType() != "ice" && m->getType() != "cure")
+        return ;
     for (int i = 0; i < 4; i++)
     {
         if (!this->inventory[i])
