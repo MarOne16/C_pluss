@@ -5,6 +5,7 @@
 #include <string>
 #include <stdexcept>
 #include <exception>
+class Form;
 
 class Bureaucrat
 {
@@ -30,8 +31,10 @@ class Bureaucrat
     void decrementGrade(void);
     const std::string &getName(void) const;
     int getGrade(void) const;
+    void signForm(Form &form);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& br);
 
+#include "Form.hpp"
 #endif // BUREAUCRAT_HPP

@@ -9,6 +9,19 @@
 
 class Bureaucrat;
 
+class AForm
+{
+    public:
+    virtual ~AForm() {}
+    virtual void execute(const Bureaucrat &executor) const = 0;
+    virtual const std::string &getName(void) const = 0;
+    virtual bool getIsSigned(void) const = 0;
+    virtual int getGradeToSign(void) const = 0;
+    virtual int getGradeToExecute(void) const = 0;
+    virtual void beSigned(const Bureaucrat &br) = 0;
+};
+
+
 class Form
 {
     private:
