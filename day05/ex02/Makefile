@@ -1,9 +1,9 @@
-NAME   = P_R_S_Forms
+NAME   = Froms_exe
 FLAGS  = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 CC     = clang++
-FILES  = main.cpp Bureaucrat.cpp Form.cpp
+FILES  = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS   = $(FILES:.cpp=.o)
-HEADER = Bureaucrat.hpp Form.hpp
+HEADER = Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 
 all: $(NAME)
 

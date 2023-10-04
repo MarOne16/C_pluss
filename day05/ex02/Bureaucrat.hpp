@@ -1,11 +1,12 @@
 #if !defined(BUREAUCRAT_HPP)
 #define BUREAUCRAT_HPP
 
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <stdexcept>
 #include <exception>
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -31,7 +32,9 @@ class Bureaucrat
     void decrementGrade(void);
     const std::string &getName(void) const;
     int getGrade(void) const;
-    void signForm(Form &form);
+    void signForm(AForm &form);
+    void executeForm(AForm const &form);
+
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& br);
