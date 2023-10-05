@@ -11,7 +11,7 @@ class Bureaucrat;
 
 class Form
 {
-    private:
+    private:    
     const std::string name;
     bool        isSigned;
     const int   gradeToSign;
