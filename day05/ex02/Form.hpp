@@ -16,6 +16,7 @@ class AForm
     bool isSigned;
     const int gradeToSign;
     const int gradeToExecute;
+    AForm();
     public:
     class GradeTooHighException : public std::exception 
     {

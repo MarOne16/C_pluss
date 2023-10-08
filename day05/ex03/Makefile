@@ -1,6 +1,6 @@
-NAME   = Froms_exe
-FLAGS  = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-CC     = clang++
+NAME   = Intern_exe
+FLAGS  = -Wall -Wextra -Werror -std=c++98 
+CC     = c++
 FILES  = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp 
 OBJS   = $(FILES:.cpp=.o)
 HEADER = Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp

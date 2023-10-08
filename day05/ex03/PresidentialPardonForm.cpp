@@ -1,5 +1,10 @@
 #include "PresidentialPardonForm.hpp"
 
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), target("default")
+{
+    std::cout << "PresidentialPardonForm constractor called\n";
+}
+
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialPardonForm", 25, 5), target(target)
 {
     std::cout << "PresidentialPardonForm constractor called\n";
@@ -17,8 +22,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &ppf)
 {
-    std::cout << "PresidentialPardonForm operator= called\n";
-    AForm::operator=(ppf);
+    static_cast<std::string>(this->target) = (ppf.target);
     return (*this);
 }
 

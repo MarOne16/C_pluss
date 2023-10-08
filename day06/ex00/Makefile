@@ -1,20 +1,20 @@
-NAME   = From
+NAME   = format
 FLAGS  = -Wall -Wextra -Werror -std=c++98 
 CC     = c++
-FILES  = main.cpp Bureaucrat.cpp Form.cpp
+FILES  = main.cpp ScalarConverte.cpp ErrorExep.cpp
 OBJS   = $(FILES:.cpp=.o)
-HEADER = Bureaucrat.hpp Form.hpp
+HEADER = ScalarConverte.hpp
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADER)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

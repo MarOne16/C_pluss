@@ -19,7 +19,7 @@ class Intern
         public:
             virtual const char *what() const throw();
     };
-    Intern(void);
+    Intern();
     Intern(Intern const &other);
     ~Intern(void);
     Intern &operator=(Intern const &other);

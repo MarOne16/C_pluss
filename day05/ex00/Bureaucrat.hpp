@@ -6,11 +6,13 @@
 #include <stdexcept>
 #include <exception>
 
+
 class Bureaucrat
 {
     private:
-    int grade;
-    const std::string name;
+        int grade;
+        const std::string name;
+       Bureaucrat();
     public:
     class GradeTooHighException : public std::exception 
     {
@@ -21,6 +23,7 @@ class Bureaucrat
     {
         public:
         const char* what() const throw();
+        
     };
     Bureaucrat(int Grade,const std::string &name);
     Bureaucrat(const Bureaucrat &br);

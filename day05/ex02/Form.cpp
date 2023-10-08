@@ -1,5 +1,10 @@
 #include "Form.hpp"
 
+AForm::AForm() : name("default"), isSigned(false), gradeToSign(1), gradeToExecute(1)
+{
+    std::cout << "AForm default constructor called" << std::endl;
+}
+
 AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
     std::cout << "AForm default constructor called" << std::endl;

@@ -1,6 +1,6 @@
 NAME   = Froms_exe
-FLAGS  = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-CC     = clang++
+FLAGS  = -Wall -Wextra -Werror -std=c++98 
+CC     = c++
 FILES  = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS   = $(FILES:.cpp=.o)
 HEADER = Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
@@ -17,7 +17,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) *_shrubbery
 
 re: fclean all
 

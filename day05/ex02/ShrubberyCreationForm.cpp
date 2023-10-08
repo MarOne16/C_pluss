@@ -1,5 +1,9 @@
 #include "ShrubberyCreationForm.hpp"
 
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("default")
+{
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
 }
@@ -14,7 +18,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &scf)
 {
-    AForm::operator=(scf);
+    static_cast<std::string>(this->target) = (scf.target);
     return (*this);
 }
 
@@ -22,17 +26,22 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
     AForm::execute(executor);
     std::ofstream ofs(this->target + "_shrubbery");
-    ofs << "      /\\\n";
-    ofs << "     /\\*\\\n";
-    ofs << "    /\\O\\*\\\n";
-    ofs << "   /*/\\/\\/\\\n";
-    ofs << "  /\\O\\/\\*\\/\\\n";
-    ofs << " /\\*\\/\\*\\/\\/\\\n";
-    ofs << "/\\O\\/\\/*/\\/O/\\\n";
-    ofs << "      ||\n";
-    ofs << "      ||\n";
-    ofs << "      ||\n";
-    ofs << std::endl;
+        ofs << "          .     .  .      +     .      .          .\n";
+        ofs << "     .       .      .     #       .           .\n";
+        ofs << "        .      .         ###            .      .      .\n";
+        ofs << "      .      .   \"#:. .:##\"##:. .:#\"  .      .\n";
+        ofs << "          .      . \"####\"###\"####\"  .\n";
+        ofs << "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       .\n";
+        ofs << "  .             \"#########\"#########\"        .        .\n";
+        ofs << "        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .\n";
+        ofs << "     .     .  \"#######\"##\"####\"##\"#######\"                  .\n";
+        ofs << "                .\"##\"#####\"#####\"##\"           .      .\n";
+        ofs << "    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .\n";
+        ofs << "      .     \"#######\"##\"####\"##\"#######\"      .     .\n";
+        ofs << "    .    .     \"#####\"\"#######\"\"####\"    .      .\n";
+        ofs << "            .     \"      000      \"    .     .\n";
+        ofs << "       .         .   .   000     .        .       .\n";
+        ofs << ".. .. ..................O000O........................ ......";
     ofs.close();
 }
 

@@ -1,5 +1,11 @@
 #include "Form.hpp"
 
+Form::Form() : name("default"), gradeToSign(1), gradeToExecute(1)
+{
+    this->isSigned = false;
+    std::cout << "the constructor called\n";
+}
+
 Form::Form(const std::string &Name, int GradeToSign, int GradeToExecute)
     : name(Name), gradeToSign(GradeToSign), gradeToExecute(GradeToExecute)
 {
@@ -20,6 +26,12 @@ Form::Form(const Form &fr) : name(fr.name), gradeToSign(fr.gradeToSign), gradeTo
 Form::~Form()
 {
     std::cout << "the Destractor called\n"; 
+}
+
+Form& Form::operator=(const Form &fr)
+{
+    isSigned = fr.isSigned;
+    return (*this);
 }
 
 void Form::beSigned(const Bureaucrat &br)

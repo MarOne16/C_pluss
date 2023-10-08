@@ -1,5 +1,9 @@
 #include"RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45)
+{
+}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyRequestForm", 72, 45), target(target)
 {
 }
@@ -14,7 +18,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &rrf)
 {
-    AForm::operator=(rrf);
+    static_cast<std::string>(this->target) = (rrf.target);
     return (*this);
 }
 

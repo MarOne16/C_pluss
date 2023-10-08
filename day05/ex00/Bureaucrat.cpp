@@ -1,6 +1,12 @@
 #include "Bureaucrat.hpp"
 
 
+Bureaucrat::Bureaucrat() : name("default")
+{
+    this->grade = 150;
+    std::cout << "the constractor called\n";
+}
+
 Bureaucrat::Bureaucrat(int Grade,const std::string &Name) : name(Name)
 {
     if (Grade < 1)
@@ -11,6 +17,8 @@ Bureaucrat::Bureaucrat(int Grade,const std::string &Name) : name(Name)
         this->grade = Grade;
     std::cout << "the constractor called\n";
 }
+
+
 
 Bureaucrat::Bureaucrat(const Bureaucrat &br) : name(br.name)
 {

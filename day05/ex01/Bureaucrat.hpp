@@ -23,6 +23,7 @@ class Bureaucrat
         public:
         const char* what() const throw();
     };
+    Bureaucrat();
     Bureaucrat(int Grade,const std::string &name);
     Bureaucrat(const Bureaucrat &br);
     ~Bureaucrat();

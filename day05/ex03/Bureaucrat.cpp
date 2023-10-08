@@ -1,5 +1,10 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat() : name("default")
+{
+    this->grade = 1;
+    std::cout << "the constractor called\n";
+}
 
 Bureaucrat::Bureaucrat(int Grade,const std::string &Name) : name(Name)
 {

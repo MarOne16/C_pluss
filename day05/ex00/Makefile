@@ -1,6 +1,6 @@
 NAME   = Bureaucrat
-FLAGS  = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-CC     = clang++
+FLAGS  = -Wall -Wextra -Werror -std=c++98 
+CC     = c++
 FILES  = main.cpp Bureaucrat.cpp 
 OBJS   = $(FILES:.cpp=.o)
 HEADER = Bureaucrat.hpp
