@@ -28,19 +28,19 @@ ScalarConverte &ScalarConverte::operator=(ScalarConverte const &rhs) {
 void ScalarConverte::printChar() {
     std::cout << "char: ";
     try {
-        if (this->_value.length() == 1 && !isdigit(this->_value[0]))
-            throw ScalarConverte::ImpossibleExep();
+        if (this->_value == "inf" || this->_value == "+inf"  || this->_value == "-inf")
+            throw ScalarConverte::NonDisplayableExep();
         std::istringstream iss(this->_value);
         int i;
         if (!(iss >> i))
             throw ScalarConverte::ImpossibleExep();
         if (i < 0 || i > 127) {
-            throw ScalarConverte::ImpossibleExep();
+            throw ScalarConverte::NonDisplayableExep();
         }
         if (i < 32 || i == 127) {
             throw ScalarConverte::NonDisplayableExep();
         }
-        std::cout << static_cast<char>(i) << std::endl;
+        std::cout << "\'" << static_cast<char>(i) << "\'" << std::endl;
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;
@@ -50,7 +50,12 @@ void ScalarConverte::printChar() {
 void ScalarConverte::printInt() {
     std::cout << "int: ";
     try {
-        std::istringstream iss(this->_value);
+        std::string tmp = this->_value;
+        if (tmp == "inf" || tmp == "+inf")
+            tmp = "2147483647";
+        else if (tmp == "-inf")
+            tmp = "-2147483648";
+        std::istringstream iss(tmp);
         int i;
         if (!(iss >> i))
             throw ScalarConverte::ImpossibleExep();
@@ -69,11 +74,21 @@ void ScalarConverte::printFloat() {
     std::cout << "float: ";
     try {
         this->parse();
-        std::istringstream iss(this->_value);
-        double d;
-        if (!(iss >> d))
+        std::string tmp = this->_value;
+        if (tmp == "in" || tmp == "+in")
+        {
+            std::cout << "inff" << std::endl;
+            return;
+        }
+        else if (tmp == "-in")
+        {
+            std::cout << "-inff" << std::endl;
+            return;
+        }
+        std::istringstream iss(tmp);
+        float f;
+        if (!(iss >> f))
             throw ScalarConverte::ImpossibleExep();
-        float f = static_cast<float>(d);
         std::cout << std::setprecision(1) << std::fixed << f << "f" << std::endl;
     }
     catch (std::exception &e) {
@@ -86,6 +101,17 @@ void ScalarConverte::printDouble()
     std::cout << "double: ";
     try {
         this->parse();
+        std::string tmp = this->_value;
+        if (tmp == "in" || tmp == "+in")
+        {
+            std::cout << "inf" << std::endl;
+            return;
+        }
+        else if (tmp == "-in")
+        {
+            std::cout << "-inf" << std::endl;
+            return;
+        }
         std::istringstream iss(this->_value);
         double d;
         if (!(iss >> d))
