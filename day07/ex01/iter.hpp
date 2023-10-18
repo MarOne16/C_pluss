@@ -12,7 +12,7 @@ void iter(T *array, size_t length, F f)
 
 template <typename T>
 void print(const T &a) {
-    std::cout << a << " ";
+    std::cout << a << std::endl;
 }
 
 
