@@ -1,5 +1,13 @@
 #pragma once
 
+//colors
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define MAGENTA "\033[35m"
+#define BLUE   "\033[34m"
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -16,23 +24,24 @@
 class BitcoinExchange
 {
     private:
-    std::multimap<std::string, std::string> mydata;
-    std::multimap<std::string, std::string> iLines;
+    std::map<std::string, float> mydata;
     std::string filename;
     std::string myLine;
     public:
     size_t lineData;
     size_t lineIn;
-    typedef std::multimap<std::string, std::string>::iterator iterator;
+    typedef std::map<std::string, float>::iterator iterator;
     BitcoinExchange(std::string filename);
     ~BitcoinExchange();
-    void parsLine(std::string line, char d);
+    void parsLine(void);
     void parsLine2(std::string &key , std::string &value);
     void parsData();
-    void printData();
     float getValue(std::string key , std::string value);
 };
+//tools.cpp
 bool notIn(std::string str, std::string s);
-bool isNumber(std::string str);
+bool isNumber(std::string str, char type);
 bool isValidDate(std::string date);
 int dateYearNow();
+std::vector<std::string> split(const std::string& str, const std::string& delimiter);
+float sToFloat(std::string str);
