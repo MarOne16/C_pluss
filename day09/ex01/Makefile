@@ -1,9 +1,9 @@
-NAME   = btc
-FLAGS  = -Wall -Wextra -Werror -std=c++98 -Wshadow
+NAME   = RPN
+FLAGS  = -Wall -Wextra -Werror -std=c++98
 CC     = c++
-FILES  = main.cpp tools.cpp BitcoinExchange.cpp
+FILES  = main.cpp RPN.cpp
 OBJS   = $(FILES:.cpp=.o)
-HEADER = BitcoinExchange.hpp
+HEADER = RPN.hpp
 
 all: $(NAME)
 

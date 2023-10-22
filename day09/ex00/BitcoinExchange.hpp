@@ -27,6 +27,9 @@ class BitcoinExchange
     std::map<std::string, float> mydata;
     std::string filename;
     std::string myLine;
+    BitcoinExchange();
+    BitcoinExchange(const BitcoinExchange& other);
+    BitcoinExchange& operator=(const BitcoinExchange& other);
     public:
     size_t lineData;
     size_t lineIn;
