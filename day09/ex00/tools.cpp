@@ -10,11 +10,20 @@ int dateYearNow()
 bool isNumber(std::string str, char type)
 {
     std::istringstream ss(str);
-    double num;
+    bool x = 0;
+    double num = 0.0;
     ss >> num;
+
     if ((num < 0 || num > 1000) && (type == 'f'))
         return false;
-    return !ss.fail() && ss.eof();
+    for (int i = 0; i != str.length() ; i++)
+    {
+        if (str[i] == '.' && x == 0 && i != 0 && (i + 1) != str.length() && (x = 1))
+            continue;
+        else if (!isdigit(str[i]))
+            return (false);
+    }
+    return true;
 }
 
 bool notIn(std::string str, std::string s)
