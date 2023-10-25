@@ -22,7 +22,11 @@ int getValue(int a, int b, char c)
     else if (c == '*')
         return a * b;
     else if (c == '/')
+    {
+        if (b == 0)
+            throw std::runtime_error("Error: division by zero");
         return a / b;
+    }
     return 0;
 }
 

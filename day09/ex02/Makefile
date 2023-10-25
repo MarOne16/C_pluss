@@ -1,5 +1,5 @@
 NAME   = PmergeMe
-FLAGS  = -Wall -Wextra -Werror -std=c++98
+FLAGS  = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 CC     = c++
 FILES  = main.cpp PmergeMe.cpp
 OBJS   = $(FILES:.cpp=.o)
