@@ -16,8 +16,6 @@ bool isPositiveInteger(std::string &str)
 
 PmergeMe::PmergeMe(char const *argv[])
 {
-
-    this->Jacobsthal = 1;
     feedargv(argv);
     this->result = "";
 }
@@ -52,18 +50,6 @@ void PmergeMe::befforAfter(std::string str, bool type) const
         for (std::deque<int>::const_iterator it = this->d_mainChain.begin(); it != this->d_mainChain.end(); it++)
             std::cout << *it << " ";
         std::cout << std::endl;
-    }
-}
-
-
-int PmergeMe::getJacobsthal(int n)
-{
-    if (n == 0) {
-        return 0;
-    } else if (n == 1) {
-        return 1;
-    } else {
-        return getJacobsthal(n - 1) + 2 * getJacobsthal(n - 2);
     }
 }
 

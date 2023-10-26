@@ -16,7 +16,7 @@ bool isNumber(std::string str, char type)
 
     if ((num < 0 || num > 1000) && (type == 'f'))
         return false;
-    for (int i = 0; i != str.length() ; i++)
+    for (size_t i = 0; i != str.length() ; i++)
     {
         if (str[i] == '.' && x == 0 && i != 0 && (i + 1) != str.length() && (x = 1))
             continue;
@@ -59,9 +59,9 @@ bool isValidDate(std::string date)
     return true;
 }
 
-std::vector<std::string> split(const std::string& str, const std::string& delimiter)
+std::list<std::string> split(const std::string& str, const std::string& delimiter)
 {
-    std::vector<std::string> tokens;
+    std::list<std::string> tokens;
     size_t start = 0, end = 0;
 
     while ((end = str.find(delimiter, start)) != std::string::npos) {

@@ -8,12 +8,12 @@
 #include <algorithm>
 #include <iomanip>
 #include <ctime>
+#include <unistd.h>
 
 
 class PmergeMe
 {
     private:
-        int Jacobsthal;
         int size;
         std::string arg;
         std::string result;
@@ -30,7 +30,6 @@ class PmergeMe
         PmergeMe(char const *argv[]);
         ~PmergeMe();
         void feedargv(char const *argv[]);
-        int  getJacobsthal(int n);
         void pushToContainers();
         void befforAfter(std::string str, bool type) const;
         template <typename T>
@@ -68,7 +67,7 @@ class PmergeMe
                 std::cout << *it << " ";
         }
         template <typename T>
-        void creatMainChain(T &array)
+        void creatMainChain(T &array, T &mainChain)
         {
             size_t i = 0;
             size_t max = array.size();
@@ -79,7 +78,7 @@ class PmergeMe
                 tmp.push_back(tmp2[i]);
                 tmp.push_back(tmp2[i + 1]);
                 insertionSort(tmp);
-                this->v_mainChain.push_back(tmp[0]);
+                mainChain.push_back(tmp[0]);
                 myErease(array, tmp[0]);
                 tmp.clear();
                 i += 2;
@@ -89,13 +88,22 @@ class PmergeMe
         template <typename T>
         void addToChain(T &mainChain, T &Pending)
         {
-            size_t i = -1;
-            while (++i < Pending.size())
+            int n = 1;
+            size_t last_i = 1;
+            start:
+            last_i = pow(2, n++) - last_i;
+            size_t i = last_i;
+            if (i > Pending.size())
+                i = Pending.size();
+            while (i)
             {
-                typename T::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), Pending[i]);
-                mainChain.insert(it, Pending[i]);
+                typename T::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), Pending[i - 1]);
+                mainChain.insert(it, Pending[i - 1]);
+                Pending.erase(Pending.begin() + (i - 1));
+                i--;
             }
-            Pending.clear();
+            if (Pending.size() > 0)
+                goto start;
         }
 };
 

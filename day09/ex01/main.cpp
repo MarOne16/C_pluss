@@ -1,15 +1,14 @@
 #include "RPN.hpp"
 
-int main(int argc, char** argv)
+int main(int argc,const char** argv)
 {
     try
     {
-        if (argc != 2)
+        if (argc < 2)
             throw std::runtime_error("Usage: ./rpn \"rpn expression\"");
-        std::string arg = argv[1];
-        RPN rpn(arg);
+        RPN rpn(argv);
         rpn.rpnToInfix();
-        std::cout << rpn.getResult()  << std::endl;
+        rpn.showResult();
     }
     catch (std::exception& e)
     {

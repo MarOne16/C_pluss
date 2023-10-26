@@ -1,13 +1,18 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(std::string filename)
+BitcoinExchange::BitcoinExchange(const char **filename)
 {
     lineData = 0;
-    std::ifstream ifs(filename);
     std::ifstream Data("data.csv");
-    if (!ifs.is_open() || !Data.is_open())
+    for (int i = 1; filename[i]; i++)
+    {
+        std::ifstream ifs(filename[i]);
+        if (!ifs.is_open())
+            throw std::invalid_argument("one of the files not found");
+        Files.push_back(filename[i]);
+    }
+    if (!Data.is_open())
         throw std::invalid_argument("File not found");
-    this->filename = filename;
 }
 
 BitcoinExchange::~BitcoinExchange()
@@ -21,33 +26,40 @@ void BitcoinExchange::parsLine2(std::string &key, std::string &value)
         std::cout << key << " => " << value << BLUE" error in input syntax\n"RESET;
         return;
     }
-    std::vector<std::string> v = split(key, " ");
-    if (v.size() > 2 || !isValidDate(v[0]))
+    std::list<std::string> v = split(key, " ");
+    if (v.size() > 2 || !isValidDate(v.front()))
     {
         std::cout << key << " => " << YELLOW" error in date\n"RESET;
         return;
     }
-    std::vector<std::string> v2 = split(value, " ");
-    if (v2.size() > 2 || !isNumber(v2[0], 'f'))
+    std::list<std::string> v2 = split(value, " ");
+    if (v2.size() >= 2 || !isNumber(v2.front(), 'f'))
     {
         std::cout << key << " => " << value << RED" error in value\n"RESET;
         return;
     }
-    std::cout << key << " => " << value << " = " <<  GREEN << getValue(v[0], v2[0]) << RESET  << std::endl;
+    std::cout << key << " => " << value << " = " <<  GREEN << getValue(v.front(), v2.front()) << RESET  << std::endl;
 }
 
 void BitcoinExchange::parsLine(void)
 {
-    std::ifstream ifs(this->filename);
-    std::string line;
-    while (std::getline(ifs, line))
+    int i = 1;
+    for (std::list<std::string>::iterator it = Files.begin(); it != Files.end(); it++)
     {
-        if ((line.length() == 0 || !notIn(line, "data| value")))
-            continue;
-        size_t pos = line.find("|");
-        std::string key = line.substr(0, pos);
-        std::string value = line.substr(pos + 1,line.length() - pos - 1);
-        parsLine2(key, value);
+        std::ifstream ifs(*it);
+        std::string line;
+        while (std::getline(ifs, line))
+        {
+            lineIn++;
+            if ((line.length() == 0 || !notIn(line, "data| value")))
+                continue;
+            size_t pos = line.find("|");
+            std::string key = line.substr(0, pos);
+            std::string value = line.substr(pos + 1,line.length() - pos - 1);
+            parsLine2(key, value);
+        }
+        std::cout << "File " << i << " done" << std::endl;
+        i++;
     }
 }
 

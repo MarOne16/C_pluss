@@ -4,9 +4,9 @@ int main(int argc, char const *argv[])
 {
     try
     {
-        if (argc != 2)
+        if (argc < 2)
             throw std::invalid_argument("Wrong number of arguments");
-        BitcoinExchange b(argv[1]);
+        BitcoinExchange b(argv);
         std::cout << MAGENTA "////////////////////////////////////////////////////////\n";
         std::cout <<  "////////////////// Bitcoin Exchange ////////////////////\n";
         std::cout <<  "// The value must be a positive and low than 1000-BTC //\n";
@@ -22,4 +22,3 @@ int main(int argc, char const *argv[])
     
     return 0;
 }
-14540

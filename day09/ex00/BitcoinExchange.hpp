@@ -14,6 +14,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <list>
 #include <algorithm>
 #include <iomanip>
 #include <ctime>
@@ -26,6 +27,7 @@ class BitcoinExchange
     private:
     std::map<std::string, float> mydata;
     std::string filename;
+    std::list<std::string> Files;
     std::string myLine;
     BitcoinExchange();
     BitcoinExchange(const BitcoinExchange& other);
@@ -34,7 +36,7 @@ class BitcoinExchange
     size_t lineData;
     size_t lineIn;
     typedef std::map<std::string, float>::iterator iterator;
-    BitcoinExchange(std::string filename);
+    BitcoinExchange(const char **filename);
     ~BitcoinExchange();
     void parsLine(void);
     void parsLine2(std::string &key , std::string &value);
@@ -46,5 +48,5 @@ bool notIn(std::string str, std::string s);
 bool isNumber(std::string str, char type);
 bool isValidDate(std::string date);
 int dateYearNow();
-std::vector<std::string> split(const std::string& str, const std::string& delimiter);
+std::list<std::string> split(const std::string& str, const std::string& delimiter);
 float sToFloat(std::string str);
